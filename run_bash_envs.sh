@@ -17,6 +17,6 @@ while getopts ":n:p:" opt; do
 done
 shift $((OPTIND -1))
 
-for ((i=START_PORT; i<START_PORT+N_ENVS+1; i++)); do
+for ((i=START_PORT; i<START_PORT+N_ENVS; i++)); do
 	sudo docker run -d -p $i:1994 --hostname linux-bash-training ttyd_session
 done
