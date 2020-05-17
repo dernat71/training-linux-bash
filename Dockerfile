@@ -17,7 +17,7 @@ RUN mkdir /usr/bin/ttyd && \
     chmod +x /usr/bin/ttyd/ttyd_linux.x86_64
 
 # Copy exercices into the image
-COPY bash_exercices /home/trainee/
+COPY bash_exercices /home/trainee/bash_exercices
 
 # Change to non-root privilege
 USER trainee
