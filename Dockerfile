@@ -16,6 +16,9 @@ RUN mkdir /usr/bin/ttyd && \
     wget --directory-prefix=/usr/bin/ttyd https://github.com/tsl0922/ttyd/releases/download/1.6.0/ttyd_linux.x86_64 && \
     chmod +x /usr/bin/ttyd/ttyd_linux.x86_64
 
+# Copy exercices into the image
+COPY bash_exercices /home/trainee/
+
 # Change to non-root privilege
 USER trainee
 WORKDIR /home/trainee
