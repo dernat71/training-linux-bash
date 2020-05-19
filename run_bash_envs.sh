@@ -1,22 +1,7 @@
 #!/bin/bash
-while getopts ":n:p:" opt; do
-  case ${opt} in
-    n )
-      N_ENVS=$OPTARG
-      ;;
-    p )
-      START_PORT=$OPTARG
-      ;;
-    \? )
-      echo "Invalid option: $OPTARG" 1>&2
-      ;;
-    : )
-      echo "Invalid option: $OPTARG requires an argument" 1>&2
-      ;;
-  esac
-done
-shift $((OPTIND -1))
+read -p "What's the port start range ? : " start_port
+read -p "What's the number of environment to deploy ? : " n_envs
 
-for ((i=START_PORT; i<START_PORT+N_ENVS; i++)); do
+for ((i=start_port; i<start_port+n_envs; i++)); do
 	sudo docker run -d -p $i:1994 --hostname linux-bash-training ttyd_session
 done

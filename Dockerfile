@@ -21,7 +21,9 @@ COPY bash_exercices /home/trainee/bash_exercices
 
 # Change folder permissions to allow people to modify it
 RUN chown -R trainee /home/trainee/bash_exercices && \
-    chmod -R 774 /home/trainee/bash_exercices
+    chmod -R 774 /home/trainee/bash_exercices && \
+    chown root:root /home/trainee/bash_exercices/files_permissions/the_locked_file.txt && \
+    chmod 000 /home/trainee/bash_exercices/files_permissions/the_locked_file.txt
 
 # Change to non-root privilege
 USER trainee
